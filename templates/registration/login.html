@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    <form method="POST">
-        {% csrf_token %}
-        {{form}}
-        <button type="submit">Submit</button>
-    </form>
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/css/login.css">
+        <title>Login</title>
+    </head>
+    
+    <body>
+    {% extends "base.html" %}
+    {% block content %}
+    <div class="shadow-wrap">
+        <div class="form-wrap">
+            <h2>Login</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{form}}
+                <button type="submit">Submit</button>
+                <a href="{% url 'base:authView' %}" class="signup-link">Signup</a>
+            </form>
+        </div>
+    </div>
+    {% endblock content %}
 </body>
+
 </html>
