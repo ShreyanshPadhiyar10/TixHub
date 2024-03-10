@@ -1,19 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/static/css/style.css"/>
-        <title>Document</title>
-    </head>
-    <body>
-    {% extends "base.html" %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/index.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    {% include "base.html" %}
     {% block content %}
 
-    <h1>hello</h1>
-    <p>This is TixHub Where you can book your tickets for your favourite movies and shows</p>
-    <a href="{% url 'base:logout' %}">Logout</a>
+    <!--* Swiper -->
+    <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="30"
+        centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+        <swiper-slide class="slide1">
+            <!-- <img src="../static/IMAGE/Oppenheimer.jpeg" alt=""> -->
+        </swiper-slide>
+        <swiper-slide>
+            <img src="../static/IMAGE/12th_fail.jpg" alt="">
+        </swiper-slide>
+        <swiper-slide>
+            <img src="../static/IMAGE/DUNE.jpg" alt="">
+        </swiper-slide>
+        <swiper-slide>
+            <img src="../static/IMAGE/kungfuPanda4.jpg" alt="">
+        </swiper-slide>
+    </swiper-container>
+
+    <!-- <a href="{% url 'base:logout' %}">Logout</a> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 
     {% endblock content %}
 </body>
+
 </html>

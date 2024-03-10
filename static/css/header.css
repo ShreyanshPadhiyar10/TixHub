@@ -1,0 +1,25 @@
+.nav-link {
+    color: white;
+    padding-left: 40px!important;
+    padding-right: 40px!important;
+}
+
+.offcanvas {
+    background-color: #0A061E;
+    color: white;
+}
+
+.canvasStyle {
+    width: 280px !important;
+    top: 89px !important;
+    padding: 5px;
+    border-top-left-radius: 40px;
+}
+
+.offcanvas-start {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 40px;
+}
+.offcanvas-body ul li {
+    padding-top: 10px;
+}
