@@ -37,7 +37,7 @@ swiper-slide img {
 }
 
 .slide2 {
-    background-image: url('../IMAGE/12th_fail.jpg');
+    background-image: url('/static/IMAGE/12th_fail.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -47,6 +47,8 @@ swiper-slide img {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+
 
 .slide-content {
     position: absolute;
