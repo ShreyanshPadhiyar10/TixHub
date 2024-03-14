@@ -45,6 +45,18 @@ swiper-slide {
     background-repeat: no-repeat;
 }
 
+.slide4 {
+    background-image: url('../IMAGE/kraven.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.slide5 {
+    background-image: url('../IMAGE/Deadpool_3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 
 
 .slide-content {
@@ -62,7 +74,7 @@ swiper-slide {
 
 
 .movie-btn button{
-    border: 1px solid yellow;
+    border: 2px solid yellow;
     color: white;
     border-radius: 0;
     margin-right: 15px;
