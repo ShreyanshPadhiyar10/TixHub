@@ -11,7 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <title>Home</title>
 </head>
 
@@ -21,14 +23,39 @@
 
     <!--* Swiper -->
     <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="0"
-        centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+        centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="true">
         <swiper-slide class="slide1">
-            <div class="info">
-                <h1>Oppenheimer</h1>
-                <p>Biography,Drama,History 2023 3h 1m</p>
-                <button class="bookTick">Book Tickets</button>
-                <button class="review">Review</button>
-                <button class="more">More</button>
+            <div class="container d-flex justify-content-end flex-column h-100 text-container text-white">
+                <div class="row">
+                    <div class="col">
+                        <div class="">
+                            <div class="movie-text">
+                                <h1 class="mb-3 fs-1">Oppenheimer</h1>
+                                <p>Biography, Drama, History <span class="ms-2"><img src="../static/IMAGE/calendar.png"
+                                            class="img-fluid align-baseline align-baseline" width="18px" alt=""> 2023</span><span class="ms-2"><img
+                                            src="../static/IMAGE/clock.png" width="25px" class="img-fluid align-baseline" alt="">2h
+                                        49m</span></p>
+                            </div>
+
+                            <div class="rating-sec mb-3">
+                                <img src="../static/IMAGE/rating.png" width="90px" alt="">
+                                <button type="button" class="btn text-white border-white border-2 px-2 rounded-0 py-1 ms-3">PG - 13</button>
+                            </div>
+                            <div class="movie-btn">
+                                <button class="btn">Book Tickets</button>
+                                <button class="btn">Review</button>
+                                <button class="btn">More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col align-self-end">
+                        <div class="text-end right-sec">
+                            <p>Christopher Nolan : <span>Director</span></p>
+                            <p>Cillian Murphy, Emily Blunt, Matt Damon : <span>Stars</span></p>
+                            <p>The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </swiper-slide>
         <swiper-slide class="slide2">
