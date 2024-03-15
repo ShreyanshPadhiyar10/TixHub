@@ -9,25 +9,24 @@
 </head>
 
 <body>
-    <header class="position-absolute z-2 top-0 w-100">
+    <header class="z-2 top-0 w-100">
         <nav class="navbar">
-            <div class="container py-4 justify-content-between ps-0">
-                <!-- *Logo and hamburger menu -->
+            <div class="container py-lg-4 py-2 justify-content-between ps-0">
+                <!-- Logo and hamburger menu -->
                 <div class="d-flex align-items-center">
-                    <!-- *page links toggle button -->
+                    <!-- page links toggle button -->
                     <div id="hamburger" class="">
                         <button class="btn float-end" data-bs-toggle="offcanvas" data-bs-target="#pages" role="button">
-                            <img src="../static/IMAGE/hamburger.png" class="img-fluid fs-3" data-bs-toggle="offcanvas"
-                                height="35px" width="35px" data-bs-target="#pages">
+                            <img src="../static/IMAGE/hamburger.png" class="img-fluid fs-3 hamburger" data-bs-toggle="offcanvas" data-bs-target="#pages">
                         </button>
                     </div>
-                    <!-- *Logo -->
-                    <div class="logo ms-4">
-                        <img src="../static/IMAGE/logo_edited.png" class="img-fluid" alt="" height="100px" width="100px">
+                    <!-- Logo -->
+                    <div class="ms-4">
+                        <img src="../static/IMAGE/logo_edited.png" class="img-fluid logo" alt="" >
                     </div>
                 </div>
 
-                <!-- *Page links on dekstop size and offcanvas in mobile and tablet size -->
+                <!-- Page links on dekstop size and offcanvas in mobile and tablet size -->
                 <div class="offcanvas offcanvas-start" tabindex="-1" id="pages" data-bs-keyboard="false"
                     data-bs-backdrop="false">
                     <div class="offcanvas-header mt-3">
@@ -54,31 +53,7 @@
                     </div>
                 </div>
 
-                <!-- Search bar -->
-                <!-- <div class="flex-grow-0 mt-4 mt-xl-0" id="navigation">
-                    <ul class="navbar-nav text-center flex-row ">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <img src="../static/IMAGE/search.png" class="img-fluid" height="20px" width="20px"
-                                    alt="">
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">HOME</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">MOVIE</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">TV SHOW</a>
-                        </li>
-                        <li class="nav-item mx-auto">
-                            <a href="#" class="nav-link btn bg-transparent">LOGIN</a>
-                        </li>
-                    </ul>
-                </div> -->
-
-                <!-- *offcanvas for user profile and other details -->
+                <!-- offcanvas for user profile and other details -->
                 <div class="offcanvas offcanvas-end canvasStyle" tabindex="-1" id="offcanvas1" data-bs-keyboard="false"
                     data-bs-backdrop="false">
                     <div class="offcanvas-header mt-3">
@@ -120,16 +95,17 @@
                         </ul>
                     </div>
                 </div>
-                <!-- *user profile toggle button -->
+
+                <!-- user profile toggle button -->
                 <div>
                     <button class="btn float-end" data-bs-toggle="offcanvas" data-bs-target="#offcanvas1" role="button">
-                        <img src="../static/IMAGE/user-icon.png" class="img-fluid fs-3" data-bs-toggle="offcanvas"
-                            height="35px" width="35px" data-bs-target="#offcanvas1">
+                        <img src="../static/IMAGE/user-icon.png" class="img-fluid fs-3 user-icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvas1">
                     </button>
                 </div>
             </div>
         </nav>
     </header>
+    <hr class="d-lg-none m-0 border-bottom" />
 
 
     <script src="../static/JS/header.js"></script>

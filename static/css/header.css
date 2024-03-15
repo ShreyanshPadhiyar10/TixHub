@@ -1,3 +1,9 @@
+body {
+    background-color: #0f171e!important;
+}
+header {
+    position: absolute;
+}
 .nav-link {
     color: white;
     padding-left: 40px!important;
@@ -21,4 +27,50 @@
 }
 .offcanvas-body ul li {
     padding-top: 10px;
+}
+.hamburger {
+    height: 35px;
+    width: 35px;
+}
+
+.logo {
+    width: 100px;
+}
+
+.user-icon {
+    height: 35px;
+    width: 35px;
+}
+
+@media screen and (max-width: 992px) {
+    header {
+        position: relative;
+        background-color: #0f171e;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger, .user-icon {
+        height: 26px;
+        width: 26px;
+    }
+    .logo {
+        width: 85px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .hamburger {
+        height: 23px;
+        width: 23px;
+        margin-left: 20px;
+    }
+    .user-icon {
+        height: 23px;
+        width: 23px;
+        margin-right: 0px;
+    }
+    .logo {
+        width: 75px;
+    }
 }

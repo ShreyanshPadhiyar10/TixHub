@@ -19,39 +19,24 @@ swiper-container {
     height: 100%;
 }
 
-swiper-slide {
-    /* text-align: center; */
-    font-size: 18px;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-}
-
 .slide1 {
-    background-image: url('../IMAGE/Oppenheimer.jpeg');
+    background: url('../IMAGE/Oppenheimer.jpeg') no-repeat center center fixed;
     background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .slide2 {
-    background-image: url('/static/IMAGE/12th_fail.jpg');
+    background: url('/static/IMAGE/12th_fail.jpg') no-repeat center center fixed;
     background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .slide3 {
-    background-image: url('../IMAGE/DUNE.jpg');
+    background: url('../IMAGE/DUNE.jpg') no-repeat center center fixed;
     background-size: cover;
-    background-repeat: no-repeat;
 }
 
 
 
 .slide-content {
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
     color: #fff;
     text-align: center;
 }
@@ -78,32 +63,51 @@ swiper-slide {
 }
 
 
-/* swiper-slide .info {
-    position: absolute;
-    bottom: 5%;
-    left: 120px;
-    margin: 0;
-    padding: 10px;
-    color: aliceblue;
-    text-align: left;
-}
-
-swiper-slide .info h1 {
-    font-size: 42px;
-}
-
-swiper-slide .info button {
-    border: 2px solid yellow;
-    border-radius: 10px;
-    padding: 0px 10px;
-    background-color: transparent;
-    color: yellow;
-    cursor: pointer;
-} */
-
 @media screen and (max-width: 992px) {
     swiper-container {
-        width: 100%;
-        height: 30%;
+        width: 92%;
+        height: 50%;
+    }
+
+    .text-container {
+        padding-bottom: 0;
+    }
+
+    .slide1, .slide3, .slide4 {
+        border-radius: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    
+}
+
+@media screen and (max-width: 576px) {
+    swiper-container {
+        width: 90%;
+        height: 35%;
+    }
+
+    .movie-text h1 {
+        font-size: 25px!important;
+    }
+
+    .movie-text p {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    swiper-container {
+        width: 90%;
+        height: 25%;
+    }
+
+    .movie-text h1 {
+        font-size: 20px!important;
+    }
+
+    .movie-text p {
+        font-size: 9px;
     }
 }
