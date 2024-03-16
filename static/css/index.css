@@ -34,6 +34,16 @@ swiper-container {
     background-size: cover;
 }
 
+.slide4 {
+    background: url('../IMAGE/kraven.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.slide5 {
+    background: url('../IMAGE/Deadpool_3.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
 
 
 .slide-content {
@@ -47,7 +57,7 @@ swiper-container {
 
 
 .movie-btn button{
-    border: 1px solid yellow;
+    border: 2px solid yellow;
     color: white;
     border-radius: 0;
     margin-right: 15px;
