@@ -6,9 +6,8 @@ let movieInterval = setInterval( () => {
     if (className.length > 0) { // Check if an element with the class exists
         let name = className[0].id
         id = document.getElementById(name)
-        
-        // console.log(id);
         finalName = movieToLink(name)
+        // console.log(finalName);
         let APIUrl = `http://www.omdbapi.com/?t=${finalName}&apikey=d4eeda95`
         result(APIUrl)
     }
