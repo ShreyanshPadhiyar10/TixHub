@@ -41,9 +41,9 @@ let showMovie = (data) => {
                 <div>
                     <div class="movie-text text-center text-lg-start">
                         <h1 class="mb-lg-3 mb-2 fs-1" id="title">${data.Title}</h1>
-                        <p>${data.Genre}<span class="ms-2 d-none d-lg-inline"><img src="../static/IMAGE/calendar.png"
+                        <p>${data.Genre}<span class="ms-2 d-none d-lg-inline"><img src="../static/IMAGE/ICONS/calendar.png"
                                     class="img-fluid align-baseline" width="18px" alt=""> ${data.Year}</span><span class="ms-2 d-none d-lg-inline"><img
-                                    src="../static/IMAGE/clock.png" width="25px" class="img-fluid" alt="">${data.Runtime}</span></p>
+                                    src="../static/IMAGE/ICONS/clock.png" width="25px" class="img-fluid" alt="">${data.Runtime}</span></p>
                     </div>
 
                     <div class="rating-sec mb-3 d-none d-lg-flex">

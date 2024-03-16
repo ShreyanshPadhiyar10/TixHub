@@ -20,17 +20,17 @@ swiper-container {
 }
 
 .slide1 {
-    background: url('../IMAGE/Oppenheimer.jpeg') no-repeat center center fixed;
+    background: url('../IMAGE/OPPENHEIMER/poster.jpeg') no-repeat center center fixed;
     background-size: cover;
 }
 
 .slide2 {
-    background: url('/static/IMAGE/12th_fail.jpg') no-repeat center center fixed;
+    background: url('../IMAGE/12TH_FAIL/poster.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
 .slide3 {
-    background: url('../IMAGE/DUNE.jpg') no-repeat center center fixed;
+    background: url('../IMAGE/DUNE/poster.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
