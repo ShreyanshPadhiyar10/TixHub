@@ -14,6 +14,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <title>Home</title>
 </head>
 
@@ -28,26 +31,56 @@
     <!--* Swiper -->
     <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="0"
         centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="true">
-        <swiper-slide class="slide1" id="oppenheimer">
-            
+
+        {% for movie in movie_det %}
+        <swiper-slide class="slide1 swiper-slide" data-image-src="/media/{{movie.poster}}">
+            <div class="container d-flex justify-content-end flex-column h-100 text-container text-white">
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <div class="movie-text text-center text-lg-start">
+                                <h1 class="mb-lg-3 mb-2 fs-1" id="title">{{movie.title}}</h1>
+                                <p>{{movie.genre}}<span class="ms-2 d-none d-lg-inline"><img
+                                            src="../static/IMAGE/ICONS/calendar.png" class="img-fluid align-baseline"
+                                            width="18px" alt=""> {{movie.year}}</span><span
+                                        class="ms-2 d-none d-lg-inline"><img src="../static/IMAGE/ICONS/clock.png"
+                                            width="25px" class="img-fluid" alt="">{{movie.runtime}}</span></p>
+                            </div>
+
+                            <div class="rating-sec mb-3 d-none d-lg-flex">
+                                <p class="d-flex mb-0 align-self-center">{{movie.rating}}</p>
+                                <button type="button"
+                                    class="btn text-white border-white border-2 px-2 rounded-0 py-1 ms-3">PG -
+                                    13</button>
+                            </div>
+                            <div class="movie-btn d-none d-lg-block">
+                                <button class="btn">Book Tickets</button>
+                                <button class="btn">Review</button>
+                                <button class="btn">More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col align-self-end d-none d-lg-flex">
+                        <div class="text-end right-sec">
+                            <p>{{movie.director}} : <span>Director</span></p>
+                            <p>{{movie.actors}} : <span>Stars</span></p>
+                            <p>{{movie.story}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                slide = document.getElementsByClassName("slide1")[0]
+                slide.style.background = "url('/media/{{movie.poster}}') no-repeat center center;"
+            </script>
         </swiper-slide>
-        <swiper-slide class="slide2" id="12th fail">
-            
-        </swiper-slide>
-        <swiper-slide class="slide3" id="dune">
-            
-        </swiper-slide>
-        <swiper-slide class="slide4" id="article 370">
-            
-        </swiper-slide>
-        <swiper-slide class="slide5" id="Shaitaan">
-            
-        </swiper-slide>
+
+
+        {% endfor %}
     </swiper-container>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-    <script src="../static/JS/api.js"></script>
+    <script src="../static/JS/home.js"></script>
 
     {% endblock content %}
 </body>

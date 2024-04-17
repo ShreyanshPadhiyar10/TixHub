@@ -19,33 +19,6 @@ swiper-container {
     height: 100%;
 }
 
-.slide1 {
-    background: url('../IMAGE/OPPENHEIMER/poster.jpeg') no-repeat center center fixed;
-    background-size: cover;
-}
-
-.slide2 {
-    background: url('../IMAGE/12TH_FAIL/poster.jpg') no-repeat center center fixed;
-    background-size: cover;
-}
-
-.slide3 {
-    background: url('../IMAGE/DUNE/poster.jpg') no-repeat center center fixed;
-    background-size: cover;
-}
-
-.slide4 {
-    background: url('../IMAGE/kraven.jpg') no-repeat center center fixed;
-    background-size: cover;
-}
-
-.slide5 {
-    background: url('../IMAGE/Deadpool_3.jpg') no-repeat center center fixed;
-    background-size: cover;
-}
-
-
-
 .slide-content {
     color: #fff;
     text-align: center;
