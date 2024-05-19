@@ -15,3 +15,9 @@ class Movie_details(models.Model):
     director = models.CharField(max_length = 50)
     actors = models.CharField(max_length = 100)
     story = models.CharField(max_length = 500)
+    cast_members = models.ManyToManyField(Movie_casting, related_name='movies')
+    
+    def cast_members_display(self):
+        return ', '.join(cast_member.cast_name for cast_member in self.cast_members.all())
+
+    cast_members_display.short_description = 'Cast Members'

@@ -11,6 +11,10 @@
         <p>{{movie.director}} : <span>Director</span></p>
         <p>{{movie.actors}} : <span>Stars</span></p>
         <p>{{movie.story}}</p>
+        {% for m in movie.cast_members.all %}
+        <p>{{m.cast_name}}</p>
+        <img src="../media/{{m.cast_image}}" alt="" height="100px" width="100px">
+        {% endfor %}
     </div>
 
 </body>

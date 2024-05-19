@@ -12,6 +12,11 @@ def more_details(request):
 
     movie_title = request.GET.get('movie_title')
     movie = get_object_or_404(Movie_details, title = movie_title)
+    
+    cast = Movie_details.objects.get(id=5)
+    for c in cast.cast_members.all():
+        print(c.cast_name)
+        print(c.cast_image)
 
     
     return render(request, 'more.html', {'movie' : movie})
