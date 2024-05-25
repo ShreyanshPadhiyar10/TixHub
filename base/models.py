@@ -15,6 +15,7 @@ class Movie_details(models.Model):
     director = models.CharField(max_length = 50)
     actors = models.CharField(max_length = 100)
     story = models.CharField(max_length = 500)
+    full_story = models.CharField(max_length=1000, default="full story", null=True)
     cast_members = models.ManyToManyField(Movie_casting, related_name='movies')
     
     def cast_members_display(self):

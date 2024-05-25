@@ -1,21 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Details</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/more.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <title>More</title>
 </head>
+
 <body>
-    
-    <div class="text-end right-sec">
-        <p>{{movie.director}} : <span>Director</span></p>
-        <p>{{movie.actors}} : <span>Stars</span></p>
-        <p>{{movie.story}}</p>
-        {% for m in movie.cast_members.all %}
-        <p>{{m.cast_name}}</p>
-        <img src="../media/{{m.cast_image}}" alt="" height="100px" width="100px">
-        {% endfor %}
+    {% include "base.html" %}
+    {% block content %}
+    <div class="slide1 mt-5 mt-lg-0 position-relative" data-image-src="/media/{{movie.poster}}">
+        <div
+            class="container d-flex justify-content-end justify-content-lg-start flex-column h-100 text-container text-white">
+            <div class="row">
+                <div class="col-12 col-lg flex align-self-end justify-content-end left-section">
+                    <div class="margin-top">
+                        <div class="movie-text text-start">
+                            <h1 class="mb-lg-3 mb-4" id="title">{{movie.title}}</h1>
+                        </div>
+
+                        <div class="story-sec mb-3 d-lg-flex">
+                            <p class="mt-2 fw-bold">{{movie.full_story}}</p>
+                        </div>
+                        <div class="movie-btn d-none d-lg-block">
+                            <button class="btn">Book Tickets</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg d-flex align-self-lg-end justify-content-lg-end right-section">
+                    <div class="text-lg-end text-start right-span margin-top">
+                        <p class=""> {{movie.director}}
+                            <span>&nbsp;:&nbsp;</span>
+                            <span>Director</span>
+                        </p>
+                        <p class=""> {{movie.actors}}
+                            <span>&nbsp;:&nbsp;</span>
+                            <span>Stars</span>
+                        </p>
+                        <p class=""> {{movie.rating}}
+                            <span>&nbsp;:&nbsp;</span>
+                            <span>Rating</span>
+                        </p>
+                        <p class=""> {{movie.genre}}
+                            <span>&nbsp;:&nbsp;</span>
+                            <span>Genre</span>
+                        </p>
+                        <p class=""> {{movie.runtime}}
+                            <span>&nbsp;:&nbsp;</span>
+                            <span>Duration</span>
+                        </p>
+                        <p class=""> {{movie.year}}
+                            <span>&nbsp;:&nbsp;</span>
+                            <span>Year</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="cast-section">
+                <p class="mt-5 pt-3 fw-bold fs-5">All Stars</p>
+                <div class="row mt-2">
+                    {% for m in movie.cast_members.all %}
+                    <div class="d-flex flex-column col col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                        <div class="box-shadow text-white cast-card">
+                            <img src="../media/{{m.cast_image}}" alt="" height="80%" width="100%">
+                            <p class="text-center align-self-center mt-1 fw-bold">{{m.cast_name}}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </div>
 
+    <script>
+        slide = document.getElementsByClassName("slide1")[0]
+        slide.style.background = "url('/media/{{movie.poster}}') no-repeat center center;"
+
+        function updateBackgroundImage(slide) {
+            const imageUrl = slide.getAttribute('data-image-src');
+            slide.style.background = `url(${imageUrl}) no-repeat center center`;
+            slide.style.webkitBackgroundSize = "cover";
+        }
+        updateBackgroundImage(slide);
+    </script>
+
+    {% endblock content %}
 </body>
+
 </html>

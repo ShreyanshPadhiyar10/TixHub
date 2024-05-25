@@ -1,5 +1,6 @@
 html,
 body {
+    box-sizing: border-box;
     position: relative;
     height: 100%;
     font-family: "Poppins" !important;
@@ -34,11 +35,12 @@ swiper-container {
     color: white;
     border-radius: 0;
     margin-right: 15px;
+    background: transparent!important;
 }
 
 .movie-btn button:hover{
-    background-color: yellow;
-    color: black;
+    background-color: yellow!important;
+    color: black!important;
 }
 
 .right-sec span{

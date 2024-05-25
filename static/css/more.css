@@ -1,0 +1,190 @@
+/* body {
+    box-sizing: border-box;
+} */
+.slide1 {
+    height: 100vh;
+}
+
+.movie-btn button{
+    border: 2px solid yellow;
+    color: white!important;
+    border-radius: 0;
+    margin-right: 15px;
+    background: transparent;
+}
+
+.movie-btn button:hover{
+    background-color: yellow!important;
+    color: black!important;
+}
+
+.movie-text h1{
+    font-size: 4rem;
+}
+
+.margin-top {
+    margin-top: 150px;
+}
+
+.left-section {
+    position: static;
+}
+
+.right-section {
+    position: static;
+}
+
+.right-span span{
+    color: yellow!important;
+}
+
+.cast-card {
+    width: 150px!important;
+    height: 180px;
+    background-color: rgb(21, 20, 20);
+}
+
+.story-sec p {
+    width: 75%;
+}
+
+@media screen and (max-width: 992px) {
+    .slide1 {
+        width: 92%;
+        height: 50vh;
+        margin: auto;
+    }
+
+    .text-container {
+        padding-bottom: 0;
+    }
+
+    .slide1 {
+        border-radius: 15px;
+    }
+
+    .margin-top {
+        margin-top: 0;
+    }
+
+    .movie-text h1 {
+        font-size: 3.5rem!important;
+    }
+
+    .left-section {
+        position: absolute;
+        bottom: -55%;
+        left: 0;
+        padding-left: 4rem!important;
+    }
+
+    .right-span p {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+    }
+
+    .right-section {
+        position: absolute;
+        bottom: -115%;
+        left: 0;
+        padding-left: 4rem!important;
+    }
+
+    .story-sec p {
+        width: 100%;
+    }
+
+    .cast-section {
+        position: absolute;
+        bottom: -175%;
+        left: 0;
+        padding-left: 4rem!important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .movie-text h1 {
+        font-size: 2.5rem!important;
+    }
+
+    .left-section {
+        padding-left: 2rem!important;
+    }
+
+    .right-section {
+        padding-left: 2rem!important;
+    }
+
+    .cast-section {
+        padding-left: 2rem!important;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .slide1 {
+        width: 90%!important;
+        height: 35vh!important;
+    }
+
+    .movie-text h1 {
+        font-size: 2rem!important;
+    }
+
+    .movie-text p {
+        font-size: 12px;
+    }
+
+    .left-section {
+        position: absolute;
+        bottom: -80%;
+        left: 0;
+        padding-left: 2rem!important;
+    }
+
+    .right-section {
+        position: absolute;
+        bottom: -165%;
+        left: 0;
+        padding-left: 2rem!important;
+    }
+
+    .cast-section {
+        position: absolute;
+        bottom: -255%;
+        left: 0;
+        padding-left: 2rem!important;
+    }
+}
+
+@media screen and (max-width: 455px) {
+    .slide1 {
+        width: 90%!important;
+        height: 25vh!important;
+    }
+
+    .movie-text p {
+        font-size: 9px;
+    }
+
+    .left-section {
+        position: absolute;
+        bottom: -140%;
+        left: 0;
+        padding-left: 2rem!important;
+    }
+
+    .right-section {
+        position: absolute;
+        bottom: -270%;
+        left: 0;
+        padding-left: 2rem!important;
+    }
+
+    .cast-section {
+        position: absolute;
+        bottom: -385%;
+        left: 0;
+        padding-left: 2rem!important;
+    }
+}

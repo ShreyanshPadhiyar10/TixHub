@@ -33,7 +33,7 @@
         centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="true">
 
         {% for movie in movie_det %}
-        <swiper-slide class="slide1 swiper-slide" data-image-src="/media/{{movie.poster}}">
+        <swiper-slide class="slide1 swiper-slide" data-image-src="/media/{{movie.poster}}" onclick="location.href = 'more?movie_title={{movie.title}}' ">
             <div class="container d-flex justify-content-end flex-column h-100 text-container text-white">
                 <div class="row">
                     <div class="col">
@@ -56,7 +56,7 @@
                             <div class="movie-btn d-none d-lg-block">
                                 <button class="btn">Book Tickets</button>
                                 <button class="btn">Review</button>
-                                <button class="btn"><a href="more?movie_title={{movie.title}}" class="btn">More</a></button>
+                                <button class=""><a href="more?movie_title={{movie.title}}" class="btn text-white">More</a></button>
                             </div>
                         </div>
                     </div>
@@ -72,14 +72,13 @@
             <script>
                 slide = document.getElementsByClassName("slide1")[0]
                 slide.style.background = "url('/media/{{movie.poster}}') no-repeat center center;"
+
+                
             </script>
         </swiper-slide>
-
-
+        
         {% endfor %}
     </swiper-container>
-
-
     <script src="../static/JS/home.js"></script>
 
     {% endblock content %}

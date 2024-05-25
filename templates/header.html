@@ -17,12 +17,13 @@
                     <!-- page links toggle button -->
                     <div id="hamburger" class="">
                         <button class="btn float-end" data-bs-toggle="offcanvas" data-bs-target="#pages" role="button">
-                            <img src="../static/IMAGE/ICONS/hamburger.png" class="img-fluid fs-3 hamburger" data-bs-toggle="offcanvas" data-bs-target="#pages">
+                            <img src="../static/IMAGE/ICONS/hamburger.png" class="img-fluid fs-3 hamburger"
+                                data-bs-toggle="offcanvas" data-bs-target="#pages">
                         </button>
                     </div>
                     <!-- Logo -->
                     <div class="ms-4">
-                        <img src="../static/IMAGE/ICONS/logo.png" class="img-fluid logo" alt="" >
+                        <img src="../static/IMAGE/ICONS/logo.png" class="img-fluid logo" alt="">
                     </div>
                 </div>
 
@@ -31,8 +32,8 @@
                     data-bs-backdrop="false">
                     <div class="offcanvas-header mt-3">
                         <h6 class="offcanvas-title ms-3" id="offcanvas">Pages</h6>
-                        <button type="button" class="btn-close text-reset text-bg-danger me-3" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
+                        <button type="button" class="btn-close text-reset text-bg-danger me-3"
+                            data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body px-0">
                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
@@ -57,7 +58,11 @@
                 <div class="offcanvas offcanvas-end canvasStyle" tabindex="-1" id="offcanvas1" data-bs-keyboard="false"
                     data-bs-backdrop="false">
                     <div class="offcanvas-header mt-3">
+                        {% if user.is_authenticated %}
+                        <h6 class="mb-0">Welcome, <span class="text-decoration-underline text-success fw-bold">{{ user.username }}</span></h6>
+                        {% else %}
                         <h6 class="offcanvas-title ms-4" id="offcanvas">Menu</h6>
+                        {% endif %}
                         <button type="button" class="btn-close text-reset text-bg-danger" data-bs-dismiss="offcanvas"
                             aria-label="Close"></button>
                     </div>
@@ -84,24 +89,39 @@
                                 <a href="#" class="nav-link text-truncate">
                                     <span class="ms-1">Trending</span> </a>
                             </li>
-                            <li>
-                                <a href="{% url 'base:login' %}" class="nav-link text-truncate">
-                                    <span class="ms-1">Login</span> </a>
-                            </li>
+                            {% if user.is_authenticated %}
                             <li>
                                 <a href="{% url 'base:logout' %}" class="nav-link text-truncate">
                                     <span class="ms-1">Logout</span> </a>
                             </li>
+                            {% else %}
+                            <li>
+                                <a href="{% url 'base:login' %}" class="nav-link text-truncate">
+                                    <span class="ms-1">Login</span> </a>
+                            </li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
 
                 <!-- user profile toggle button -->
-                <div>
-                    <button class="btn float-end" data-bs-toggle="offcanvas" data-bs-target="#offcanvas1" role="button">
-                        <img src="../static/IMAGE/ICONS/menu.png" class="img-fluid fs-3 user-icon" data-bs-toggle="offcanvas"
-                            height="35px" width="35px" data-bs-target="#offcanvas1">
-                    </button>
+                <div class="d-flex flex-row-reverse">
+                    <div>
+                        <button class="btn float-end" data-bs-toggle="offcanvas" data-bs-target="#offcanvas1"
+                            role="button">
+                            <img src="../static/IMAGE/ICONS/menu.png" class="img-fluid fs-3 user-icon"
+                                data-bs-toggle="offcanvas" height="35px" width="35px" data-bs-target="#offcanvas1">
+                        </button>
+                    </div>
+                    <div class="align-self-center">
+                        {% if user.is_authenticated %}
+                        <div class="d-flex align-items-center text-white">
+                            <h5 class="mb-0 me-2 me-sm-4 font-size d-none d-sm-block">Welcome, <span class="text-decoration-underline text-success fw-bold">{{ user.username }}</span></h5>
+                        </div>
+                        {% else %}
+                        <a href="{% url 'base:login' %}" class="text-danger text-decoration-none">Login</a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </nav>

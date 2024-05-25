@@ -6,7 +6,7 @@ from .models import *
 # Register your models here.
 
 class Movie_admin(admin.ModelAdmin):
-    list_display = ('title', 'poster', 'genre', 'year', 'runtime', 'rating', 'director', 'actors', 'story', 'cast_members_display')
+    list_display = ('title', 'poster', 'genre', 'year', 'runtime', 'rating', 'director', 'actors', 'story', 'full_story', 'cast_members_display')
     
 admin.site.register(Movie_details, Movie_admin)
 
