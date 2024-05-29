@@ -22,3 +22,7 @@ class Movie_details(models.Model):
         return ', '.join(cast_member.cast_name for cast_member in self.cast_members.all())
 
     cast_members_display.short_description = 'Cast Members'
+    
+class Theatre_details(models.Model):
+    theatre_name = models.CharField(max_length = 50)
+    theatre_address = models.CharField(max_length = 100)

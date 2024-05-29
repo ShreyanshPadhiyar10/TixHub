@@ -4,7 +4,6 @@ from django.contrib.auth.forms import UserCreationForm
 from base.models import Movie_details
 
 # Create your views here.
-
 def home(request):
     movie_det = Movie_details.objects.all()
     data = { 'movie_det' : movie_det }

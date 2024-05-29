@@ -33,7 +33,7 @@
         centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="true">
 
         {% for movie in movie_det %}
-        <swiper-slide class="slide1 swiper-slide" data-image-src="/media/{{movie.poster}}" onclick="location.href = 'more?movie_title={{movie.title}}' ">
+        <swiper-slide class="slide1 swiper-slide" data-image-src="/media/{{movie.poster}}" >
             <div class="container d-flex justify-content-end flex-column h-100 text-container text-white">
                 <div class="row">
                     <div class="col">
@@ -54,9 +54,9 @@
                                     13</button>
                             </div>
                             <div class="movie-btn d-none d-lg-block">
-                                <button class="btn">Book Tickets</button>
+                                <button class=""><a href="ticket-booking?id={{movie.id}}" class="btn text-white"> Book Tickets </a></button>
                                 <button class="btn">Review</button>
-                                <button class=""><a href="more?movie_title={{movie.title}}" class="btn text-white">More</a></button>
+                                <button class=""><a href="more?id={{movie.id}}" class="btn text-white">More</a></button>
                             </div>
                         </div>
                     </div>

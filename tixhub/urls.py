@@ -24,7 +24,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(("base.urls", "base"),"base")),
-    path('more/', view.more_details, name='more_details')
+    path('more/', view.more_details, name='more_details'),
+    path('ticket-booking/', view.ticket_booking, name='ticket_booking')
 ]
 
 
