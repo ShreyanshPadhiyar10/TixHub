@@ -23,87 +23,91 @@
   <div class="center">
     <img src="../media/{{ movie.poster }}" alt="" />
     <div class="tickets">
-      <div class="ticket-selector">
-        <div class="heading">
-          <div class="head">
-            <h3 class="title">{{ movie.title }}</h3>
+      <form method="post" action="/ticket_booking/{{movie.id}}" id="form">
+        {% csrf_token %}
+        <div class="ticket-selector">
+          <div class="heading">
+            <div class="head">
+              <h3 class="title">{{ movie.title }}</h3>
+            </div>
+            <div>
+              <select name="theatre" id="theatre">
+                {% for theatres in all_theatres %}
+                <option value="{{theatres.id}}">{{theatres.theatre_name}} : {{theatres.theatre_address}}</option>
+                {% endfor %}
+              </select>
+            </div>
           </div>
-          <div>
-            <select name="" id="">
-              {% for theatres in theatre %}
-              <option value="{{theatre.theatre_name}}">{{theatres.theatre_name}} : {{theatres.theatre_address}}</option>
-              {% endfor %}
-            </select>
+          <div class="seats">
+            <div class="status">
+              <div class="item">Available</div>
+              <div class="item">Booked</div>
+              <div class="item">Selected</div>
+            </div>
+            <p class="seatError" id="seatError">Select a seat first</p>
+            <div class="all-seats">
+              <!-- <input type="checkbox" name="tickets[]" id="s1" />
+              <label for="s1" name="tics" class="seat"></label> -->
+            </div>
+          </div>
+          <div class="timings">
+            <div class="dates">
+              <input type="radio" name="date" id="d1" checked />
+              <label for="d1" class="dates-item">
+                <div class="day"></div>
+                <div class="date"></div>
+              </label>
+              <input type="radio" id="d2" name="date" />
+              <label class="dates-item" for="d2">
+                <div class="day"></div>
+                <div class="date"></div>
+              </label>
+              <input type="radio" id="d3" name="date" />
+              <label class="dates-item" for="d3">
+                <div class="day"></div>
+                <div class="date"></div>
+              </label>
+              <input type="radio" id="d4" name="date" />
+              <label class="dates-item" for="d4">
+                <div class="day"></div>
+                <div class="date"></div>
+              </label>
+              <input type="radio" id="d5" name="date" />
+              <label class="dates-item" for="d5">
+                <div class="day"></div>
+                <div class="date"></div>
+              </label>
+              <input type="radio" id="d6" name="date" />
+              <label class="dates-item" for="d6">
+                <div class="day"></div>
+                <div class="date"></div>
+              </label>
+              <input type="radio" id="d7" name="date" />
+              <label class="dates-item" for="d7">
+                <div class="day"></div>
+                <div class="date"></div>
+              </label>
+            </div>
+            <div class="times">
+              <input type="radio" name="time" id="t1" value="11:00" checked />
+              <label for="t1" class="time">11:00</label>
+              <input type="radio" id="t2" name="time" value="14:30" />
+              <label for="t2" class="time">14:30</label>
+              <input type="radio" id="t3" name="time" value="18:00" />
+              <label for="t3" class="time">18:00</label>
+              <input type="radio" id="t4" name="time" value="21:30" />
+              <label for="t4" class="time">21:30</label>
+            </div>
           </div>
         </div>
-        <div class="seats">
-          <div class="status">
-            <div class="item">Available</div>
-            <div class="item">Booked</div>
-            <div class="item">Selected</div>
+        <div class="price">
+          <div class="total">
+            <span> <span class="count">0</span> Tickets </span>
+            <div class="amount">0</div>
           </div>
-          <div class="all-seats">
-            <input type="checkbox" name="tickets" id="s1" />
-            <label for="s1" name="tics" class="seat"></label>
-          </div>
+          <button type="submit" id="book">Book</button>
         </div>
-        <div class="timings">
-          <div class="dates">
-            <input type="radio" name="date" id="d1" checked />
-            <label for="d1" class="dates-item">
-              <div class="day"></div>
-              <div class="date"></div>
-            </label>
-            <input type="radio" id="d2" name="date" />
-            <label class="dates-item" for="d2">
-              <div class="day"></div>
-              <div class="date"></div>
-            </label>
-            <input type="radio" id="d3" name="date" />
-            <label class="dates-item" for="d3">
-              <div class="day"></div>
-              <div class="date"></div>
-            </label>
-            <input type="radio" id="d4" name="date" />
-            <label class="dates-item" for="d4">
-              <div class="day"></div>
-              <div class="date"></div>
-            </label>
-            <input type="radio" id="d5" name="date" />
-            <label class="dates-item" for="d5">
-              <div class="day"></div>
-              <div class="date"></div>
-            </label>
-            <input type="radio" id="d6" name="date" />
-            <label class="dates-item" for="d6">
-              <div class="day"></div>
-              <div class="date"></div>
-            </label>
-            <input type="radio" id="d7" name="date" />
-            <label class="dates-item" for="d7">
-              <div class="day"></div>
-              <div class="date"></div>
-            </label>
-          </div>
-          <div class="times">
-            <input type="radio" name="time" id="t1" checked />
-            <label for="t1" class="time">11:00</label>
-            <input type="radio" id="t2" name="time" />
-            <label for="t2" class="time">14:30</label>
-            <input type="radio" id="t3" name="time" />
-            <label for="t3" class="time">18:00</label>
-            <input type="radio" id="t4" name="time" />
-            <label for="t4" class="time">21:30</label>
-          </div>
-        </div>
-      </div>
-      <div class="price">
-        <div class="total">
-          <span> <span class="count">0</span> Tickets </span>
-          <div class="amount">0</div>
-        </div>
-        <button type="button" id="book">Book</button>
-      </div>
+      </form>
     </div>
   </div>
 
@@ -111,28 +115,31 @@
 
     // To add 60 seats in page
     let seats = document.querySelector(".all-seats");
-    for (var i = 0; i < 49; i++) {
+    for (var i = 0; i < 50; i++) {
+      let row = Math.floor(i / 10) + 1;
+      let col = i % 10 + 1;
+      let seatValue = String.fromCharCode(65 + row - 1) + col;
       seats.insertAdjacentHTML(
         "beforeend",
-        '<input type="checkbox" name="tickets" id="s' +
-        (i + 2) +
-        '" /><label for="s' +
-        (i + 2) +
+        '<input type="checkbox" name="tickets[]" id="s' +
+        (i + 1) +
+        '" value="' + seatValue + '" /><label for="s' +
+        (i + 1) +
         '" class="seat"></label>'
       );
     }
-    console.log(seats);
 
-
-    let book = document.getElementById("book");
-    book.onclick = () => {
-      let checkedBoxes = document.querySelectorAll('input[name=tickets]:checked');
-      checkedBoxes.forEach((checkbox) => {
-        let label = checkbox.nextElementSibling;
-        label.classList.add("booked");
-        checkbox.disabled = true
-        checkbox.checked = false
-      })
+    // To check if any checkboxs is selected or not
+    let form = document.getElementById("form");
+    form.onsubmit = (e) => {
+      let allBox = document.querySelectorAll('input[type=checkbox]:checked')
+      if (allBox.length === 0) {
+        e.preventDefault()
+        seatError.style.display = "block"
+      }
+      else {
+        seatError.style.display = "none"
+      }
     }
 
     // To count ticket amount and qty
@@ -165,12 +172,51 @@
       let date = new Date(currentDate);
       let day = date.toLocaleString("en-US", { weekday: "short" });
       let dayNumber = date.getDate();
+      const formattedDate = date.toISOString().split('T')[0].replace(/-/g, '-');
 
       dates[i].nextElementSibling.children[0].textContent = day;
       dates[i].nextElementSibling.children[1].textContent = dayNumber;
+      dates[i].value = formattedDate
 
       currentDate.setDate(currentDate.getDate() + 1); // Increment the date by one day
     }
+
+    // Get all booking data from database and check if seat is booked or not
+    function fetchBookedSeats() {
+      let movieId = "{{ movie.id }}";
+      let theatreId = document.querySelector('select[name="theatre"]').value;
+      let date = document.querySelector('input[name="date"]:checked').value;
+      let time = document.querySelector('input[name="time"]:checked').nextElementSibling.textContent;
+
+      fetch(`/get_booked_seats/${movieId}/${theatreId}/${date}/${time}/`)
+        .then(response => response.json())
+        .then(data => {
+          let bookedSeats = data.booked_seats;
+          console.log(bookedSeats);
+          seats.querySelectorAll("input").forEach((seat) => {
+            if (bookedSeats.includes(seat.value)) {
+              seat.nextElementSibling.classList.add("booked");
+              seat.disabled = true;
+              seat.checked = false;
+            } else {
+              seat.nextElementSibling.classList.remove("booked");
+              seat.disabled = false;
+            }
+          });
+        });
+    }
+
+    // Fetch booked seats on page load
+    document.addEventListener('DOMContentLoaded', fetchBookedSeats);
+
+    // Fetch booked seats when date or time changes
+    document.querySelectorAll('input[name="date"], input[name="time"]').forEach((input) => {
+      input.addEventListener('change', fetchBookedSeats);
+    });
+
+    // Fetch booked seats when any theatre changes
+    document.querySelector('select[name="theatre"]').addEventListener('change', fetchBookedSeats);
+
 
   </script>
 

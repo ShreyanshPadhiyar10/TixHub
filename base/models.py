@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.auth import get_user_model
+
+Users = get_user_model()
 
 # Create your models here.
 class Movie_casting(models.Model):
@@ -26,3 +29,11 @@ class Movie_details(models.Model):
 class Theatre_details(models.Model):
     theatre_name = models.CharField(max_length = 50)
     theatre_address = models.CharField(max_length = 100)
+
+class Booking(models.Model):
+    user = models.ForeignKey(Users, on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movie_details, on_delete=models.CASCADE)
+    theatre = models.ForeignKey(Theatre_details, on_delete=models.CASCADE)
+    date = models.DateField()
+    time = models.TimeField()
+    seats = models.TextField() 

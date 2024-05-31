@@ -76,6 +76,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    margin-bottom: 5px;
+}
+
+.seatError {
+    color: red!important;
+    margin-bottom: 0;
+    font-weight: bold;
+    margin-top: 10px;
+    display: none;
 }
 
 .seats::before {
@@ -126,7 +135,7 @@ body {
     grid-template-columns: repeat(10, 1fr);
     grid-gap: 15px;
     margin: 60px 0;
-    margin-top: 20px;
+    margin-top: 10px;
     position: relative;
 }
 
@@ -242,4 +251,8 @@ input {
     outline: none;
     border: none;
     cursor: pointer;
+}
+
+#book {
+    display: block;
 }

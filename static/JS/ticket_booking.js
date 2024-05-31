@@ -10,7 +10,6 @@ for (var i = 0; i < 49; i++) {
         '" class="seat"></label>'
     );
 }
-console.log(seats);
 
 
 let book = document.getElementById("book");
@@ -57,6 +56,7 @@ for (let i = 0; i < dates.length; i++) {
 
     dates[i].nextElementSibling.children[0].textContent = day;
     dates[i].nextElementSibling.children[1].textContent = dayNumber;
+    
 
     currentDate.setDate(currentDate.getDate() + 1); // Increment the date by one day
 }
