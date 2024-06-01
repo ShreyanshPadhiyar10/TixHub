@@ -1,5 +1,5 @@
 body {
-    background-color: Thistle;
+    background-color: #0A061E;
     font-family: "Yanone Kaffeesatz", sans-serif;
     font-weight: 600;
   }
@@ -20,7 +20,7 @@ body {
   .holes-top {
     height: 50px;
     width: 50px;
-    background-color: Thistle;
+    background-color: #0A061E;
     border-radius: 50%;
     position: absolute;
     left: 50%;
@@ -31,7 +31,7 @@ body {
     content: "";
     height: 50px;
     width: 50px;
-    background-color: Thistle;
+    background-color: #0A061E;
     position: absolute;
     border-radius: 50%;
   }
@@ -51,7 +51,7 @@ body {
     content: "";
     height: 50px;
     width: 50px;
-    background-color: Thistle;
+    background-color: #0A061E;
     position: absolute;
     border-radius: 50%;
   }

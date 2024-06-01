@@ -132,3 +132,6 @@ LOGOUT_REDIRECT_URL = "base:login"
 
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
+
+RAZORPAY_KEY_ID = "rzp_test_u25U9fNHa9kQ2q"
+RAZORPAY_KEY_SECRET = "uQtovFeFVta6l2eMZifmSTnq"

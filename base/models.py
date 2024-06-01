@@ -36,4 +36,7 @@ class Booking(models.Model):
     theatre = models.ForeignKey(Theatre_details, on_delete=models.CASCADE)
     date = models.DateField()
     time = models.TimeField()
-    seats = models.TextField() 
+    seats = models.TextField()
+    razorpay_order_id = models.CharField(max_length=100, blank=True, null=True)
+    razorpay_payment_id = models.CharField(max_length=100, blank=True, null=True)
+    razorpay_signature = models.CharField(max_length=100, blank=True, null=True)

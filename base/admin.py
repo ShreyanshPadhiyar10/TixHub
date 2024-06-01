@@ -20,6 +20,6 @@ class Theatre_admin(admin.ModelAdmin):
 admin.site.register(Theatre_details, Theatre_admin)
 
 class Booking_admin(admin.ModelAdmin):
-    list_display = ('user', 'movie', 'theatre', 'date', 'time', 'seats')
+    list_display = ('user', 'movie', 'theatre', 'date', 'time', 'seats', 'razorpay_order_id', 'razorpay_payment_id', 'razorpay_signature')
     
 admin.site.register(Booking, Booking_admin)
