@@ -86,7 +86,7 @@
 
     .right-section {
         position: absolute;
-        bottom: -115%;
+        bottom: -135%;
         left: 0;
         padding-left: 4rem!important;
     }
@@ -97,7 +97,7 @@
 
     .cast-section {
         position: absolute;
-        bottom: -175%;
+        bottom: -265%;
         left: 0;
         padding-left: 4rem!important;
     }
@@ -118,6 +118,8 @@
 
     .cast-section {
         padding-left: 2rem!important;
+        position: absolute;
+        bottom: -340%;
     }
 }
 
@@ -144,14 +146,14 @@
 
     .right-section {
         position: absolute;
-        bottom: -165%;
+        bottom: -220%;
         left: 0;
         padding-left: 2rem!important;
     }
 
     .cast-section {
         position: absolute;
-        bottom: -255%;
+        bottom: -500%;
         left: 0;
         padding-left: 2rem!important;
     }
@@ -183,7 +185,7 @@
 
     .cast-section {
         position: absolute;
-        bottom: -385%;
+        bottom: -670%;
         left: 0;
         padding-left: 2rem!important;
     }
