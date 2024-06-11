@@ -1,37 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment</title>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <meta charset="UTF-8">
+  <title>Payment</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700'><link rel="stylesheet" href="./style.css">
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <link rel="stylesheet" href="../static/css/payment.css">
+
 </head>
 <body>
-    <h2>Payment for Booking</h2>
-    <p>Movie: {{ movie.title }}</p>
-    <p>Theatre: {{ theatre.theatre_name }}</p>
-    <p>Date: {{ date }}</p>
-    <p>Time: {{ time }}</p>
-    <p>Seats: {{ seats|join:", " }}</p>
-    <p>Amount: ₹{{ amount }}</p>
+<body>
+  <div class="model">
+    <div class="room">
+      <div class="text-cover">
+        <h1>{{movie.title}}</h1>
+        <p class="price"> {{amount}} <span>INR</span> | {{seats|join:", "}} </p>
+        <hr>
+        <p>{{theatre.theatre_name}}</p>
+        <p>{{date}} {{time}}</p>
+      </div>
+    </div><div class="payment">
+      <div class="receipt-box">
+        <h3>Reciept Summary</h3>
+        <table class="table">
+          <tr>
+            <td>Ticket Price</td>
+            <td>{{amount}} INR</td>
+          </tr>
+          <tr>
+            <td>Discount</td>
+            <td>0 USD</td>
+          </tr>
+          <tr>
+            <td>Subtotal</td>
+            <td>{{amount}} INR</td>
+          </tr>
+          <tr>
+            <td>Tax</td>
+            <td>0 INR</td>
+          </tr>
+          <tfoot>
+            <tr>
+              <td>Sum</td>
+              <td>{{amount}}</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="payment-info">
+        <form id="razorpay-form">
+            <script
+                src="https://checkout.razorpay.com/v1/checkout.js"
+                data-key="{{ razorpay_key_id }}"
+                data-amount="{{ amount }}"
+                data-currency="INR"
+                data-order_id="{{ razorpay_order_id }}"
+                data-buttontext="Pay with Razorpay"
+                data-name="Movie Booking"
+                data-description="Booking for {{ movie.title }}"
+                data-image="{{ movie.poster.url }}"
+                data-prefill.name="{{ user.username }}"
+                data-prefill.email="{{ user.email }}"
+                data-theme.color="#F37254"
+            ></script>
+            <input type="hidden" name="booking_id" value="{{ booking_id }}">
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
 
-    <form id="razorpay-form">
-        <script
-            src="https://checkout.razorpay.com/v1/checkout.js"
-            data-key="{{ razorpay_key_id }}"
-            data-amount="{{ amount }}"
-            data-currency="INR"
-            data-order_id="{{ razorpay_order_id }}"
-            data-buttontext="Pay with Razorpay"
-            data-name="Movie Booking"
-            data-description="Booking for {{ movie.title }}"
-            data-image="{{ movie.poster.url }}"
-            data-prefill.name="{{ user.username }}"
-            data-prefill.email="{{ user.email }}"
-            data-theme.color="#F37254"
-        ></script>
-        <input type="hidden" name="booking_id" value="{{ booking_id }}">
-    </form>
+
+
+<script>
+    var model = document.querySelector(".model");
+
+    function fadeIn () {
+    console.log('fadein')
+    model.className += " fadeIn";
+}
+</script>
+  
 
 </body>
 </html>

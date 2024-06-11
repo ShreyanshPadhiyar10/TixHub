@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+  /*   border: 1px solid black; */
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    margin: 0;
+    padding: 10% 0;
+    position: relative;
+    min-height: 100vh;
+    background: #34495e;
+    display: flex;
+    justify-content: center;
+      animation: fadein 5s;
+    animation-fill-mode: forwards;
+  }
+  
+  .fadeIn {
+    animation: fadein 5s;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+  
+  label {
+    display: block;
+  }
+  /* Model Container */
+  
+  .model {
+    width: 900px;
+    height: 400px;
+    background: white;
+  /*   font-size: 0; */
+    color: white;
+    position: relative;
+  /*   animation: slideInFromLeft 1s cubic-bezier(0.68, -0.55, 0.265, 1.55); */
+    animation-fill-mode: forwards;
+  }
+  
+
+  
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .room {
+    width: 50%;
+    height: 100%;
+    background: url(https://images.unsplash.com/photo-1470274038469-958113db2384?auto=format&fit=crop&w=1875&q=80) no-repeat center center;
+    background-size: cover;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+  }
+  
+  .text-cover {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px
+  }
+  
+  .text-cover > * {
+    margin: 10px 0;
+  }
+  
+  .text-cover h1 {
+    font-size: 1.8rem;
+  }
+  
+  .text-cover .price {
+    color: #e67e22;
+  }
+  
+  .text-cover .price span {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+  
+  .payment {
+    width: 50%;
+    height: 100%;
+    color: #34495e;
+    display: inline-block;
+  }
+  
+  .receipt-box {
+    padding: 20px 20px;
+    border-bottom: 1px solid #34495e;
+  }
+  
+  .receipt-box h3,
+  .payment-info h3 {
+    margin-bottom: 2rem;
+  }
+  
+  .payment-info {
+    padding: 20px;
+  }
+  
+  
+  input[type=text]{
+      width: 100%;
+      padding: 8px 10px 10px;
+      margin: 15px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+  }
+  
+  .btn {
+    padding: 15px 25px;
+    border: none;
+    color: white;
+    width: 100%;
+    display: block;
+    background: #9b59b6;
+    text-transform: uppercase;
+  }
+  
+  .table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+  }
+   
+  .table td {
+    font-size: 0.8rem;
+    font-style: italic;
+    padding: .25rem;
+    vertical-align: top;
+      
+  }
+  
+  
+  .table td:nth-child(2) {
+    text-align: right;
+  }
