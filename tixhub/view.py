@@ -6,6 +6,7 @@ from django.http import JsonResponse, HttpResponse
 import razorpay
 from django.views.decorators.csrf import csrf_exempt
 from tixhub import settings
+from datetime import datetime
 
 def home(req):
     return render(req, "index.html")
@@ -33,10 +34,11 @@ def ticket_booking(request, movie_id):
         
         theatre = get_object_or_404(Theatre_details, id=theatre_name)
         
-        amount = len(selected_seats) * 200 * 100
+        amount = 200
+        total_amount = (len(selected_seats) * 200) * 100
         
         client = razorpay.Client(auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET))
-        razorpay_order = client.order.create({"amount": amount, "currency": "INR", "payment_capture": "1"})
+        razorpay_order = client.order.create({"amount": total_amount, "currency": "INR", "payment_capture": "1"})
         
         booking = Booking.objects.create(
             user=request.user,
@@ -47,14 +49,15 @@ def ticket_booking(request, movie_id):
             seats=','.join(selected_seats),
             razorpay_order_id=razorpay_order['id']
         )
-        # return redirect("booking_success", booking_id = booking.id)
         return render(request, "Payment/payment.html", {
             'movie': movie,
             'theatre': theatre,
             'date': date,
             'time': time,
             'seats': selected_seats,
+            'total_seats':len(selected_seats),
             'amount': amount,
+            'total_amount': total_amount,
             'razorpay_order_id': razorpay_order['id'],
             'razorpay_key_id': settings.RAZORPAY_KEY_ID,
             'booking_id': booking.id
@@ -73,20 +76,22 @@ def payment_success(request):
                 'razorpay_payment_id': data.get('razorpay_payment_id'),
                 'razorpay_signature': data.get('razorpay_signature')
             })
-            booking_id = data.get('booking_id')
-            booking = get_object_or_404(Booking, id=booking_id)
-            booking.razorpay_payment_id = data.get('razorpay_payment_id')
-            booking.razorpay_signature = data.get('razorpay_signature')
-            booking.save()
-            return render(request, 'Bookings/booking_success.html', id=booking_id)
+            return render(request, 'Bookings/booking_success.html')
         except razorpay.errors.SignatureVerificationError:
             return render(request, 'payment_failed.html')
     return redirect('home')
 
 # If booking data stored then display this page
-def booking_success(request, booking_id):
-    booking = get_object_or_404(Booking, id=booking_id)
-    return render(request, 'Bookings/booking_success.html', {'booking': booking})
+@login_required
+def booking_success(request):
+    current_datetime = datetime.now()
+    upcoming_bookings = Booking.objects.filter(user=request.user, date__gt=current_datetime.date()) | Booking.objects.filter(user=request.user, date=current_datetime.date(), time__gt=current_datetime.time())
+    past_bookings = Booking.objects.filter(user=request.user, date__lt=current_datetime.date()) | Booking.objects.filter(user=request.user, date=current_datetime.date(), time__lt=current_datetime.time())
+    
+    return render(request, 'Bookings/booking_success.html', {
+        'upcoming_bookings': upcoming_bookings.order_by('date', 'time'),
+        'past_bookings': past_bookings.order_by('-date', '-time')
+    })
 
 # filter the booked data from database
 def get_booked_seats(request, movie_id, theatre_id, date, time):

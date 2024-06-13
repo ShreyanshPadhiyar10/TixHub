@@ -26,9 +26,8 @@ urlpatterns = [
     path('', include(("base.urls", "base"),"base")),
     path('more/<int:movie_id>', view.more_details, name='more_details'),
     path('ticket_booking/<int:movie_id>', view.ticket_booking, name='ticket_booking'),
-    path('booking_success/<int:booking_id>', view.booking_success, name='booking_success'),
+    path('booking_success', view.booking_success, name='booking_success'),
     path('get_booked_seats/<int:movie_id>/<int:theatre_id>/<str:date>/<str:time>/', view.get_booked_seats, name='get_booked_seats'),
-    path('payment_success/', view.payment_success, name='payment_success'),
 ]
 
 

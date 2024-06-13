@@ -8,91 +8,103 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 	<link rel="stylesheet" href="../static/css/booking_success.css">
 
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 
 <body>
+	{% include "base.html" %}
+	{% block content %}
+	<div class="row column-gap-2 margin-top justify-content-center">
+		<h1 class="text-center text-white mt-3">Upcoming Show</h1>
+		{% for booking in upcoming_bookings %}
+		<div class="col-4">
+			<div class="ticket">
+				<div class="title">
+					<p class="cinema">{{booking.theatre.theatre_name}} PRESENTS</p>
+					<p class="movie-title">{{booking.movie.title}}</p>
+				</div>
+				<div class="poster">
+					<img src="../media/{{booking.movie.poster}}" alt="" />
+				</div>
+				<div class="info">
+					<table>
+						<tr>
+							<th>PRICE</th>
+							<th>SEAT</th>
+						</tr>
+						<tr>
+							<td class="bigger">200</td>
+							<td class="bigger">{{booking.seats}}</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<th>DATE</th>
+							<th>TIME</th>
+						</tr>
+						<tr>
+							<td>{{booking.date}}</td>
+							<td>{{booking.time}}</td>
+						</tr>
+					</table>
+				</div>
 
-	<div class="ticket">
-		<div class="holes-top"></div>
-		<div class="title">
-			<p class="cinema">{{booking.theatre.theatre_name}} PRESENTS</p>
-			<p class="movie-title">{{booking.movie.title}}</p>
+			</div>
 		</div>
-		<div class="poster">
-			<img src="../media/{{booking.movie.poster}}" alt="" />
+
+		{% empty %}
+		<li class="text-danger text-center mt-5">No upcoming bookings found.</li>
+		{% endfor %}
+	</div>
+
+
+	<div class="row column-gap-2 margin-top justify-content-center">
+		<h1 class="text-center text-white mt-3">Past Shows</h1>
+		{% for booking in past_bookings %}
+		<div class="col-4">
+			<div class="ticket">
+				<div class="title">
+					<p class="cinema">{{booking.theatre.theatre_name}} PRESENTS</p>
+					<p class="movie-title">{{booking.movie.title}}</p>
+				</div>
+				<div class="poster">
+					<img src="../media/{{booking.movie.poster}}" alt="" />
+				</div>
+				<div class="info">
+					<table>
+						<tr>
+							<th>PRICE</th>
+							<th>SEAT</th>
+						</tr>
+						<tr>
+							<td class="bigger">200</td>
+							<td class="bigger">{{booking.seats}}</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<th>DATE</th>
+							<th>TIME</th>
+						</tr>
+						<tr>
+							<td>{{booking.date}}</td>
+							<td>{{booking.time}}</td>
+						</tr>
+					</table>
+				</div>
+
+			</div>
 		</div>
-		<div class="info">
-			<table>
-				<tr>
-					<th>PRICE</th>
-					<th>SEAT</th>
-				</tr>
-				<tr>
-					<td class="bigger">200 ??</td>
-					<td class="bigger">{{booking.seats}}</td>
-				</tr>
-			</table>
-			<table>
-				<tr>
-					<th>DATE</th>
-					<th>TIME</th>
-				</tr>
-				<tr>
-					<td>{{booking.date}}</td>
-					<td>{{booking.time}}</td>
-				</tr>
-			</table>
-		</div>
-		<div class="holes-lower"></div>
-		<div class="serial">
-			<table class="barcode">
-				<tr></tr>
-			</table>
-			<table class="numbers">
-				<tr>
-					<td>9</td>
-					<td>1</td>
-					<td>7</td>
-					<td>3</td>
-					<td>7</td>
-					<td>5</td>
-					<td>4</td>
-					<td>4</td>
-					<td>4</td>
-					<td>5</td>
-					<td>4</td>
-					<td>1</td>
-					<td>4</td>
-					<td>7</td>
-					<td>8</td>
-					<td>7</td>
-					<td>3</td>
-					<td>4</td>
-					<td>1</td>
-					<td>4</td>
-					<td>5</td>
-					<td>2</td>
-				</tr>
-			</table>
-		</div>
+
+		{% empty %}
+		<li class="text-danger text-center mt-5">No past bookings found.</li>
+		{% endfor %}
 	</div>
 	<!-- partial -->
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-	<script src="./script.js"></script>
 
-	<script>
-		var code = '11010010000100111011001011101111011010001110101110011001101110010010111101110111001011001001000011011000111010110001001110111101101001011010111000101101'
-
-		table = $('.barcode tr');
-		for (var i = 0; i < code.length; i++) {
-			if (code[i] == 1) {
-				table.append('<td bgcolor="black">')
-			} else {
-				table.append('<td bgcolor="white">')
-			}
-		}
-	</script>
-
+	{% endblock content %}
 </body>
 
 </html>

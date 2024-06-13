@@ -8,6 +8,11 @@ header {
     color: white;
     padding-left: 40px!important;
     padding-right: 40px!important;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: rgb(108, 108, 108);
 }
 
 .offcanvas {

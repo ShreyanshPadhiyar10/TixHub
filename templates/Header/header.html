@@ -38,17 +38,13 @@
                     <div class="offcanvas-body px-0">
                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-truncate">
+                                <a href="/" class="nav-link text-truncate">
                                     <span class="ms-1">HOME</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#submenu1" data-bs-toggle="collapse" class="nav-link text-truncate">
+                                <a href="/" data-bs-toggle="collapse" class="nav-link text-truncate">
                                     <span class="ms-1">MOVIE</span> </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link text-truncate">
-                                    <span class="ms-1">TV SHOW</span></a>
                             </li>
                         </ul>
                     </div>
@@ -68,26 +64,9 @@
                     </div>
                     <div class="offcanvas-body px-0">
                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-truncate">
-                                    <span class="ms-1">Profile</span>
-                                </a>
-                            </li>
                             <li>
-                                <a href="#" class="nav-link text-truncate">
+                                <a href="{% url 'booking_success' %}" class="nav-link text-truncate">
                                     <span class="ms-1">Your Tickets</span> </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link text-truncate">
-                                    <span class="ms-1">Watch List</span></a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link text-truncate">
-                                    <span class="ms-1">Rating</span></a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link text-truncate">
-                                    <span class="ms-1">Trending</span> </a>
                             </li>
                             {% if user.is_authenticated %}
                             <li>
